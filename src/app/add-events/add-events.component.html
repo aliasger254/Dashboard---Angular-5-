@@ -1,0 +1,223 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2"><i class="fas fa-plus-square"></i> Add Events</h1>
+</div>
+
+<div class="container addEvent">
+    <form>
+        <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="Name">Title</label>
+                <input type="text" required ngModel name="name" #name="ngModel" class="form-control" id="email">
+                <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Name Required</div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="Image">Event Image</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+              <div class="form-group col-md-12">
+                  <label for="Discription">Discription</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="Category">Category</label>
+                <select class="form-control" >
+                    <option>Category 1</option>
+                    <option>Category 2</option>
+                    <option>Category 3</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="Organizer">Tag</label>
+                <select class="form-control" >
+                    <option>Tag 1</option>
+                    <option>Tag 2</option>
+                    <option>Tag 3</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="Organizer">Organizer</label>
+                  <input type="text" class="form-control" id="pwd">
+                </div>
+              
+              <div class="col-md-12">
+                <h3>Where</h3>
+                <hr>
+              </div>              
+              <div class="form-group col-md-6">
+                <label for="Address">Location Name</label>
+                <input type="text" class="form-control" id="pwd">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="Address">Address</label>
+                <input type="text" class="form-control" id="pwd">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="City">City</label>
+                <input type="text" class="form-control" id="pwd">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="Country">Country</label>
+                <input type="text" class="form-control" id="pwd">
+              </div>  
+              <div class="form-group col-md-3">
+                <label for="City">Postcode</label>
+                <input type="text" class="form-control" id="pwd">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="Country">Region</label>
+                <input type="text" class="form-control" id="pwd">
+              </div>  
+              
+              <div class="col-md-12">
+                <h3>When</h3>
+                <hr>
+              </div>  
+
+              <div class="form-group col-md-4">
+                <label for="Date">From</label>
+                <input type="date" class="form-control" id="pwd"><br>
+                <label for="End Date">To</label>
+                <input type="date" class="form-control" id="pwd">
+              </div>              
+              <div class="form-group col-md-4">
+                <label for="Date">Event Start at</label>
+                <input type="time" class="form-control" id="pwd"><br>
+                <label for="End Date">To</label>
+                <input type="time" class="form-control" id="pwd">
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="Date">TimeZone</label>
+                  <select class="form-control" >
+                    <option>UTC</option>
+                    <option>UTC +1</option>
+                    <option>UTC +6</option>
+                  </select>
+                  <br>
+                  <div class="form-check">
+                      <div class="form-check-inline">
+                        <label class="form-check-label" for="check1">
+                          <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" ><strong>All Day</strong>
+                        </label>
+                      </div>
+                      <p>This event spans every day between the beginning and end date, with start/end times applying to each day.</p>
+                  </div>                    
+              </div>
+              
+              <div class="col-md-12">
+                  <h3>Booking/Registration</h3>
+                  <hr>
+              </div> 
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                  <input type="checkbox" class="form-check-input" id="check1" name="vehicle1" value="something" [(ngModel)]="ShowBooking">Enable Registration For This Event
+                </label>
+              </div>                        
+        </div> 
+
+        <!-- <div class="booking" *ngIf="ShowBooking"> -->
+        <div class="booking" *ngIf="ShowBooking">
+          <h4>Ticket</h4>
+          <hr>
+          <p>You can have single or multiple tickets, where certain tickets become available under certain conditions, e.g. early bookings, group discounts, maximum bookings per ticket, etc. Basic HTML is allowed in ticket labels and descriptions.</p>
+          
+          <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Ticket Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Min/Max</th>
+                  <th scope="col">Start/End</th>
+                  <th scope="col">Available Spaces</th>
+                  <th scope="col">Booked Spaces</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ticket of tickets">
+                  <td>{{ticket.name}}</td>
+                  <td>{{ticket.price | currency}}</td>
+                  <td>{{ticket.least}}/{{ticket.most}}</td>
+                  <td>{{ticket.from}} - {{ticket.until}}</td>
+                  <td>{{ticket.spaces}}</td>
+                  <td>{{ticket.booked}}</td>
+                </tr>                
+            </tbody>
+          </table>
+          <button class="btn btn-sm {{addnewticket ? 'btn-danger' : 'btn-success'}}" (click)="addTicket()">{{addnewticket ? 'Close' : 'Add New Ticket'}}</button>
+          <div style="margin-top:25px;"></div>
+          <div class="newticket" *ngIf="addnewticket">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="Name">Ticket Name</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="Name">Price</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="Name">Spaces</label>
+                    <input type="text" class="form-control" required>
+                  </div>
+                <div class="form-group col-md-4">
+                    <label for="Name">At Least</label>
+                    <input type="text" class="form-control" required><br>
+                    <label for="Name">At Most</label>
+                    <input type="text" class="form-control" required>
+                </div>               
+                <div class="form-group col-md-4">
+                    <label for="Name">Available From</label>
+                    <input type="text" class="form-control" required><br>
+                    <label for="Name">Available Until</label>
+                    <input type="text" class="form-control" required>
+                </div>               
+                <div class="form-group col-md-4">
+                    <label for="Name">Available For</label>
+                    <select class="form-control" >
+                        <option>Everyone</option>
+                        <option>Guest User</option>
+                        <option>Login User</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="Discription">Discription</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+              </div>    
+          </div>
+
+          <div style="margin-top:70px;"></div>
+          <h4>Event Option</h4>
+          <hr> 
+            <div class="form-row">
+                <div class="form-group col-md-4">  
+                    <label for="Date">Total Spaces</label>
+                    <input type="Number" class="form-control" id="pwd">
+                </div>  
+            </div>                
+            <p><em><mark>Individual tickets with remaining spaces will not be available if total booking spaces reach this limit. Leave blank for no limit.</mark></em></p>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Date">Maximum Spaces Per Booking</label> 
+                    <input type="Number" class="form-control" id="pwd">
+                </div>  
+            </div>           
+            <p><em><mark>If set, the total number of spaces for a single booking to this event cannot exceed this amount.Leave blank for no limit.</mark></em></p>
+            
+           <div class="form-row">
+              <div class="form-group col-md-4">
+                  <label for="Date">Booking Cut-Off Date</label> 
+                  <input type="date" class="form-control" id="pwd">
+              </div>  
+              <div class="form-group col-md-4">
+                  <label for="Date">Booking Cut-Off Date</label> 
+                  <input type="time" class="form-control" id="pwd">
+              </div>  
+           </div>           
+           <p><em><mark>This is the definite date after which bookings will be closed for this event, regardless of individual ticket settings above. Default value will be the event start date.</mark></em></p>
+        </div>   
+        
+        <div style="margin-top:30px;"></div>
+        <button type="submit" class="btn btn-primary">Add Event</button>
+      </form>
+</div>

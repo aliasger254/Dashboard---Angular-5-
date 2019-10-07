@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2"> <i class="fas fa-file"></i> Booking</h1> 
+</div>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor ="let booking of bookings">
+      <td>{{booking.Name | uppercase}} -Booked Spaces:   {{booking.BookedSpaces}} / <b>{{booking.Spaces}}</b>
+          <span class="{{booking.BookedSpaces == booking.Spaces ? 'text-danger text-uppercase' : ''}}">{{booking.BookedSpaces == booking.Spaces ? 'No Space Available' : '' }}</span>
+      </td>
+      <td>{{booking.Date}} - {{booking.Enddate}}</td>
+    
+    </tr>
+  </tbody>
+</table>
+ 

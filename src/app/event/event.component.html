@@ -1,0 +1,11 @@
+<div *ngFor = "let x of viewEvent" class="container" style="padding-top:100px;">
+  <h1>{{x.Name}}</h1>
+  <img src="{{x.Featuredimg}}" width="600px"/>
+  <p><b>{{x.Category}}</b></p>
+  <p><b>Organizer :</b>{{x.Organizer}}</p>
+  <p><b>Overview </b><br>{{x.Description}}</p>
+  <p>From {{x.Date}} to {{x.Enddate}} at {{x.Time}} at {{x.Location}}</p>
+  <p><b>Price</b> {{x.Price | currency}}<br></p>
+  <button class="btn btn-danger">Edit</button>
+</div>
+ 

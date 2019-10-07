@@ -1,0 +1,32 @@
+export const Events = [
+    {
+        'Date' : '9 AUG 2018',
+        'Category' : 'Training Course',
+        'Name' : 'Jeet Ka Junoon',
+        'Enddate' : '10 AUG 2018',
+        'Time': '6:00 PM',
+        'Price' : '1000',
+        'Location'  : 'Indore',
+        'Description' : 'It is inded my pleasure to inform you about our upcoming  event Jeet Ka Junoon - Indore ,scheduled on  9th & 10th August 2018 evening 6-9  at Ravindra Natya Grah , Ravindranath Tagore Marg, Indore.This event is Unique and Inspiring workshop by Asia Greatest Leader 2017 Award winner        Mr.Bhupendra Singh Rathore (BSR), International Motivational Speaker,Transformational Business Coach,Leadership Expert & Author. Entry to this event is Free with compulsory registration,till date we have approx Registration link- http://coachbsr.com/events/jeet-ka-junoon-indore/For more information contact +91 8669234754 / 8669701263',
+        'Organizer': 'Bhupendra Singh Rathore',
+        'Featuredimg':'https://s3.ap-south-1.amazonaws.com/townscript-production/images/f4a680e4-a988-4fc6-8ff2-1fcb197c81c7.jpeg',
+        'Available' : '1',
+        'Spaces' : '50',
+        'BookedSpaces' : '49',
+    },
+    {
+        'Date' : '5 OCT 2018',
+        'Category' : 'Agriculture',
+        'Name' : 'FarmTech Asia',
+        'Enddate' : '8 OCT 2018',
+        'Time': '10:00 PM',
+        'Price' : '500',
+        'Location'  : 'Indore',
+        'Description' : 'FarmTech Asia, an International Agriculture Exhibition and Conference is being organized during 05-08 October, 2018 at Agriculture College Ground, Indore, Madhya Pradesh. FarmTech Asia is being organized with an aim to provide the best platform for Agriculture Industry Stakeholders.',
+        'Organizer': 'Farmtech Asia',
+        'Featuredimg':'https://s3.ap-south-1.amazonaws.com/townscript-production/images/42e92993-3772-4756-bd90-b529a2d55e0b.png',
+        'Available' : '0',
+        'Spaces' : '50',
+        'BookedSpaces' : '50',
+    }    
+];
